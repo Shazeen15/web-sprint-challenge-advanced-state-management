@@ -1,7 +1,18 @@
-import axios from 'axios';
+import axios from "axios";
+// axios.get("http://localhost:3333/smurfs").then((res) => {
+//   console.log(res);
+// });
+export const smurfCall = () => {
+  return (dispatch) => {
+    dispatch({ type: "FETCH_SMURF" });
+    axios.get("http://localhost:3333/smurfs").then((res) => {
+      console.log(res);
+    });
+  };
+};
 
 //Task List:
-//1. Add fetch smurfs action: 
+//1. Add fetch smurfs action:
 //              - fetch and return initial list of smurfs
 //              - dispatch actions that indicate if we are waiting for a server response
 //              - dispatch an error text action if an error is returned from the server
