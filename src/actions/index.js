@@ -12,7 +12,7 @@ export const smurfCall = () => {
         dispatch({ type: "FETCH_SUCCESS", payload: res.data });
       })
       .catch((error) => {
-        dispatch({ type: "ERROR", payload: "Get Request Failed" });
+        dispatch({ type: "ERROR", payload: " Network error" });
       });
   };
 };

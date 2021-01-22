@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 
 class AddForm extends React.Component {
   state = {
@@ -8,7 +9,16 @@ class AddForm extends React.Component {
     description: "",
   };
 
+  handleChange = (e) => {
+    console.log(e.target.name);
+    this.setState({
+      ...this.state,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   render() {
+    const { error } = this.props;
     return (
       <section>
         <h2>Add Smurf</h2>
@@ -43,7 +53,7 @@ class AddForm extends React.Component {
             className="alert alert-danger"
             role="alert"
           >
-            Error:{" "}
+            Error:{error}
           </div>
           <button>Submit Smurf</button>
         </form>
@@ -52,7 +62,15 @@ class AddForm extends React.Component {
   }
 }
 
-export default AddForm;
+const mapStateToProps = (state) => {
+  return {
+    smurfInfo: state.smurfInfo,
+    isLoading: state.isLoading,
+    error: state.error,
+  };
+};
+
+export default connect(mapStateToProps)(AddForm);
 
 //Task List:
 //1. Add in all necessary import components and library methods.
