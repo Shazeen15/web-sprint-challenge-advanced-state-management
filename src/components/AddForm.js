@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { addSmurf } from "./../actions";
 
 class AddForm extends React.Component {
+  // initial state
+  //  component state
   state = {
     name: "",
     position: "",
@@ -10,6 +12,7 @@ class AddForm extends React.Component {
     description: "",
   };
 
+  //   trackes the inputs
   handleChange = (e) => {
     this.setState({
       ...this.state,
@@ -18,6 +21,7 @@ class AddForm extends React.Component {
     console.log(this.state);
   };
 
+  //   onsubmit function
   onSubmit = (e) => {
     e.preventDefault();
     console.log(e);
@@ -25,6 +29,7 @@ class AddForm extends React.Component {
     this.clearClick();
   };
 
+  //   clear button function
   clearClick = (e) => {
     // e.preventDefault();
     this.setState({
@@ -83,6 +88,7 @@ class AddForm extends React.Component {
             />
           </div>
 
+          {/* displays errors if any */}
           {error ? (
             <div
               data-testid="errorAlert"
