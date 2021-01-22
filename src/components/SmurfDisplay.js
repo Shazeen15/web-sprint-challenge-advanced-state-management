@@ -5,12 +5,8 @@ import Smurf from "./Smurf";
 
 export class SmurfDisplay extends React.Component {
   render() {
-    const { smurfInfo } = this.props;
-    return (
-      <div>
-        <Smurf />
-      </div>
-    );
+    const { smurfInfo, isLoading } = this.props;
+    return <div>{isLoading ? "Loading..." : <Smurf />}</div>;
   }
 }
 
