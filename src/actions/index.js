@@ -17,7 +17,14 @@ export const smurfCall = () => {
   };
 };
 
-export const addSmurf = () => {};
+export const addSmurf = (smurf) => {
+  return (dispatch) => {
+    axios.post("http://localhost:3333/smurfs", smurf).then((res) => {
+      console.log(res.data);
+      dispatch({ type: "ADD_SMURF", payload: res.data });
+    });
+  };
+};
 
 //Task List:
 //1. Add fetch smurfs action:

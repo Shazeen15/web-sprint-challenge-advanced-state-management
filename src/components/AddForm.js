@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { addSmurf } from "./../actions";
 
 class AddForm extends React.Component {
   state = {
@@ -10,11 +11,17 @@ class AddForm extends React.Component {
   };
 
   handleChange = (e) => {
-    console.log(e.target.name);
     this.setState({
       ...this.state,
       [e.target.name]: e.target.value,
     });
+    console.log(this.state);
+  };
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    console.log(e);
+    this.props.addSmurf(this.state);
   };
 
   render() {
@@ -22,7 +29,7 @@ class AddForm extends React.Component {
     return (
       <section>
         <h2>Add Smurf</h2>
-        <form>
+        <form onSubmit={this.onSubmit}>
           <div className="form-group">
             <label htmlFor="name">Name:</label>
             <br />
@@ -70,7 +77,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(AddForm);
+export default connect(mapStateToProps, { addSmurf })(AddForm);
 
 //Task List:
 //1. Add in all necessary import components and library methods.

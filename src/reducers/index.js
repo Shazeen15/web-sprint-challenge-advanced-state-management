@@ -18,16 +18,16 @@ export const reducer = (state = initialState, action) => {
         isLoading: false,
         smurfInfo: action.payload,
       };
-    case "ADD_SMURF":
-      return {
-        ...state,
-        smurfInfo: [...state.smurfInfo, action.payload],
-      };
     case "ERROR":
       return {
         ...state,
         isLoading: false,
         error: action.payload,
+      };
+    case "ADD_SMURF":
+      return {
+        ...state,
+        smurfInfo: action.payload,
       };
     default:
       return state;
