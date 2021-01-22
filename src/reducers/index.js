@@ -18,12 +18,12 @@ export const reducer = (state = initialState, action) => {
         isLoading: false,
         smurfInfo: action.payload,
       };
-    case "POST_SMURF":
+    case "ADD_SMURF":
       return {
         ...state,
         smurfInfo: [...state.smurfInfo, action.payload],
       };
-    case "FETCH_FAIL":
+    case "ERROR":
       return {
         ...state,
         isLoading: false,

@@ -12,10 +12,12 @@ export const smurfCall = () => {
         dispatch({ type: "FETCH_SUCCESS", payload: res.data });
       })
       .catch((error) => {
-        dispatch({ type: "FETCH_FAIL", payload: "Get Request Failed" });
+        dispatch({ type: "ERROR", payload: "Get Request Failed" });
       });
   };
 };
+
+export const addSmurf = () => {};
 
 //Task List:
 //1. Add fetch smurfs action:
