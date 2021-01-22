@@ -3,16 +3,16 @@ import { connect } from "react-redux";
 
 class Smurf extends React.Component {
   render() {
-    const { smurfInfo } = this.props;
+    const { smurfInfo, error } = this.props;
 
     return (
       <div data-testid="smurf" className="card">
         {smurfInfo.map((smurf) => {
           return (
             <div key={smurf.id}>
-              <h1>{smurf.name}</h1>
-              <p>{smurf.nickname}</p>
-              <p>{smurf.position}</p>
+              <h1>{smurf.name.length === 0 ? error : smurf.name}</h1>
+              <p>{smurf.nickname.length === 0 ? error : smurf.nickname}</p>
+              <p>{smurf.position.length === 0 ? error : smurf.position}</p>
               <p>{smurf.description}</p>
             </div>
           );
@@ -25,6 +25,7 @@ class Smurf extends React.Component {
 const mapStateToProps = (state) => {
   return {
     smurfInfo: state.smurfInfo,
+    error: state.error,
   };
 };
 

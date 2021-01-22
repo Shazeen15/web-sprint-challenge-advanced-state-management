@@ -22,6 +22,18 @@ class AddForm extends React.Component {
     e.preventDefault();
     console.log(e);
     this.props.addSmurf(this.state);
+    this.clearClick();
+  };
+
+  clearClick = (e) => {
+    // e.preventDefault();
+    this.setState({
+      name: "",
+      position: "",
+      nickname: "",
+      description: "",
+    });
+    console.log(this.state);
   };
 
   render() {
@@ -33,17 +45,32 @@ class AddForm extends React.Component {
           <div className="form-group">
             <label htmlFor="name">Name:</label>
             <br />
-            <input onChange={this.handleChange} name="name" id="name" />
+            <input
+              onChange={this.handleChange}
+              name="name"
+              id="name"
+              value={this.state.name}
+            />
           </div>
           <div className="form-group">
             <label htmlFor="nickname">Nickname:</label>
             <br />
-            <input onChange={this.handleChange} name="nickname" id="nickname" />
+            <input
+              onChange={this.handleChange}
+              name="nickname"
+              id="nickname"
+              value={this.state.nickname}
+            />
           </div>
           <div className="form-group">
             <label htmlFor="position">position:</label>
             <br />
-            <input onChange={this.handleChange} name="position" id="position" />
+            <input
+              onChange={this.handleChange}
+              name="position"
+              id="position"
+              value={this.state.position}
+            />
           </div>
           <div className="form-group">
             <label htmlFor="description">description:</label>
@@ -52,6 +79,7 @@ class AddForm extends React.Component {
               onChange={this.handleChange}
               name="description"
               id="description"
+              value={this.state.description}
             />
           </div>
 
@@ -67,6 +95,7 @@ class AddForm extends React.Component {
             <div></div>
           )}
           <button>Submit Smurf</button>
+          <button onClick={this.clearClick}>Clear</button>
         </form>
       </section>
     );
