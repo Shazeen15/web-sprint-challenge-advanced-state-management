@@ -15,6 +15,7 @@ export const reducer = (state = initialState, action) => {
     case "FETCH_SUCCESS":
       return {
         ...state,
+        isLoading: false,
         smurfInfo: action.payload,
       };
     case "POST_SMURF":
@@ -25,6 +26,7 @@ export const reducer = (state = initialState, action) => {
     case "FETCH_FAIL":
       return {
         ...state,
+        isLoading: false,
         error: action.payload,
       };
     default:

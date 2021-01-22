@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
 import { connect } from "react-redux";
 
 import AddForm from "./components/AddForm";
@@ -11,9 +10,7 @@ import "./App.css";
 
 class App extends Component {
   componentDidMount() {
-    // axios.get("http://localhost:3333/smurfs").then((res) => {
-    //   console.log(res);
-    // });
+    // API Call
     this.props.smurfCall();
   }
 

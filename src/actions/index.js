@@ -5,9 +5,15 @@ import axios from "axios";
 export const smurfCall = () => {
   return (dispatch) => {
     dispatch({ type: "FETCH_SMURF" });
-    axios.get("http://localhost:3333/smurfs").then((res) => {
-      console.log(res);
-    });
+    axios
+      .get("http://localhost:3333/smurfs")
+      .then((res) => {
+        console.log(res.data);
+        dispatch({ type: "FETCH_SUCCESS", payload: res.data });
+      })
+      .catch((error) => {
+        dispatch({ type: "FETCH_FAIL", payload: "Get Request Failed" });
+      });
   };
 };
 
