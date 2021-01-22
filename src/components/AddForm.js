@@ -55,13 +55,17 @@ class AddForm extends React.Component {
             />
           </div>
 
-          <div
-            data-testid="errorAlert"
-            className="alert alert-danger"
-            role="alert"
-          >
-            Error:{error}
-          </div>
+          {error ? (
+            <div
+              data-testid="errorAlert"
+              className="alert alert-danger"
+              role="alert"
+            >
+              Error:{error}
+            </div>
+          ) : (
+            <div></div>
+          )}
           <button>Submit Smurf</button>
         </form>
       </section>

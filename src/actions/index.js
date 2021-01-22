@@ -19,10 +19,15 @@ export const smurfCall = () => {
 
 export const addSmurf = (smurf) => {
   return (dispatch) => {
-    axios.post("http://localhost:3333/smurfs", smurf).then((res) => {
-      console.log(res.data);
-      dispatch({ type: "ADD_SMURF", payload: res.data });
-    });
+    axios
+      .post("http://localhost:3333/smurfs", smurf)
+      .then((res) => {
+        console.log(res.data);
+        dispatch({ type: "ADD_SMURF", payload: res.data });
+      })
+      .catch((error) => {
+        dispatch({ type: "ERROR", payload: " Adding did not go through" });
+      });
   };
 };
 
