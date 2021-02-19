@@ -17,10 +17,10 @@ export const smurfCall = () => {
   };
 };
 
-export const addSmurf = (smurf) => {
+export const addSmurf = (smurfs) => {
   return (dispatch) => {
     axios
-      .post("http://localhost:3333/smurfs", smurf)
+      .post("http://localhost:3333/smurfs", smurfs)
       .then((res) => {
         console.log(res.data);
         dispatch({ type: "ADD_SMURF", payload: res.data });
